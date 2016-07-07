@@ -1,0 +1,16 @@
+
+<div class="artistsearch">
+<div class="card search">
+	<h1>Clone Wars Character Cards</h1>
+	<label>Search <span *ngIf="query">for: {{query}}</span></label>
+	<input [(ngModel)]="query" type="text" name="query" placeholder="type in search term">
+</div>
+</div>
+
+<ul *ngIf="query" class="artistlist cf">
+	<li class="artist cf" *ngFor="let item of (mChaArray) | find:query" (click)="showChara(item); query='';">
+	<item class="content" [mCharacter]=item>loading character...</item>
+	</li>
+</ul>
+
+<detail *ngIf="currentChara" [mCharacter]="currentChara"></detail>
